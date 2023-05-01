@@ -1,0 +1,24 @@
+/* Write your code here. */
+.list_card {
+  list-style-type: none;
+
+  margin: 5px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  border-width: 0px;
+}
+.image_emoji {
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+}
