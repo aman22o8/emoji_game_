@@ -1,6 +1,13 @@
 /* Write your code here. */
-.footer {
+.myfooter_container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: linear-gradient(to bottom, #9796f0, #fbc7d4);
+}
+.footer {
   height: 100vh;
   list-style-type: none;
   margin-top: 0px;
