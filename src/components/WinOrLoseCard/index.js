@@ -8,7 +8,7 @@ const WinOrLoseCard = props => {
   }
   return (
     <div className="winloosecontainer">
-      <div className="left_side">
+      <div className="side_side">
         {displayresult !== 12 ? (
           <h1 className="heading1">You Lose</h1>
         ) : (
@@ -24,16 +24,18 @@ const WinOrLoseCard = props => {
           Play Again
         </button>
       </div>
-      <div className="right_side">
-        <img
-          className="winimage"
-          src={
-            displayresult !== 12
-              ? 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
-              : 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
-          }
-          alt="win or lose"
-        />
+      <div className="side_side">
+        <div>
+          <img
+            className="winimage"
+            src={
+              displayresult !== 12
+                ? 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
+                : 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
+            }
+            alt="win or lose"
+          />
+        </div>
       </div>
     </div>
   )

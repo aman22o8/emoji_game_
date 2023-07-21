@@ -79,7 +79,7 @@ class EmojiGame extends Component {
           />
         </div>
         {isTrue ? (
-          <div>
+          <div className="align_at_center">
             <ul className="footer">
               {myresult.map(each => (
                 <EmojiCard
@@ -91,7 +91,7 @@ class EmojiGame extends Component {
             </ul>
           </div>
         ) : (
-          <div className="myfooter_container loosecontainer">
+          <div className=" loosecontainer">
             <WinOrLoseCard
               displayresult={displayresult}
               isTrue1={this.mytruefunction}
