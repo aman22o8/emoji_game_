@@ -32,7 +32,7 @@ const WinOrLoseCard = props => {
               ? 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
               : 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
           }
-          alt={displayresult !== 12 ? 'lose' : 'win'}
+          alt="win or lose"
         />
       </div>
     </div>
