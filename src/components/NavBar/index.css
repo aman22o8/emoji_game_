@@ -1,8 +1,9 @@
 /* Write your code here. */
 .navbar_container {
   height: 10vh;
-  background-color: #9796f0;
-  opacity: 0.72;
+  background-color: rgb(255, 255, 255, 0.3);
+  /* opacity: 0.72; */
+  /* rgb(151, 150, 240, 0.7) */
   display: flex;
   flex-direction: row;
   justify-content: space-between;

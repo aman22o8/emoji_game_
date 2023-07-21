@@ -18,26 +18,21 @@ import EmojiCard from '../EmojiCard'
 import WinOrLoseCard from '../WinOrLoseCard'
 
 class EmojiGame extends Component {
-  state = {isTrue: true, emolist: [], displayresult: '', maxofall: []}
+  state = {isTrue: true, emolist: [], displayresult: 0, maxofall: [0]}
 
   mytruefunction = () =>
     // const {isTrue} = this.state
-    this.setState(prevState => ({isTrue: !prevState.isTrue}))
+    this.setState(prevState => ({isTrue: !prevState.isTrue, displayresult: 0}))
 
   finishGameAndSetTopScore = resultEmojisLength => {
-    // console.log(resultEmojisLength)
-    const {emojisList} = this.props
-
-    if (emojisList.length !== resultEmojisLength) {
-      this.setState(prevState => ({
-        isTrue: !prevState.isTrue,
-        displayresult: resultEmojisLength,
-        emolist: [],
-        maxofall: [...prevState.maxofall, resultEmojisLength],
-      }))
-    } else {
-      this.setState({displayresult: resultEmojisLength, emolist: []})
-    }
+    console.log(resultEmojisLength)
+    // const {emojisList} = this.props
+    return this.setState(prevState => ({
+      isTrue: !prevState.isTrue,
+      // displayresult: resultEmojisLength,
+      emolist: [],
+      maxofall: [...prevState.maxofall, resultEmojisLength],
+    }))
   }
 
   myclickedemoji = id => {
@@ -53,7 +48,10 @@ class EmojiGame extends Component {
       if (emojisList.length - 1 === clickedEmojisLength) {
         this.finishGameAndSetTopScore(emojisList.length)
       }
-      this.setState(prevsate => ({emolist: [...prevsate.emolist, id]}))
+      this.setState(prevsate => ({
+        emolist: [...prevsate.emolist, id],
+        displayresult: clickedEmojisLength + 1,
+      }))
     }
   }
 
@@ -64,20 +62,24 @@ class EmojiGame extends Component {
 
   render() {
     const {isTrue, emolist, maxofall, displayresult} = this.state
-
+    const maxvalue = Math.max(...maxofall)
     const myresult = this.shuffledEmojisList()
     console.log(emolist)
-    console.log(maxofall)
-    console.log(displayresult)
-    console.log(isTrue)
+    // console.log(maxofall)
+    // console.log(displayresult)
+    // console.log(isTrue)
 
     return (
-      <>
-        <div>
-          <NavBar displayresult={displayresult} />
+      <div className="myfooter_container">
+        <div className="mynav_bar">
+          <NavBar
+            isTrue={isTrue}
+            displayresult={displayresult}
+            maxvalue={maxvalue}
+          />
         </div>
-        <div className="myfooter_container">
-          {isTrue ? (
+        {isTrue ? (
+          <div>
             <ul className="footer">
               {myresult.map(each => (
                 <EmojiCard
@@ -87,15 +89,31 @@ class EmojiGame extends Component {
                 />
               ))}
             </ul>
-          ) : (
+          </div>
+        ) : (
+          <div className="myfooter_container loosecontainer">
             <WinOrLoseCard
               displayresult={displayresult}
               isTrue1={this.mytruefunction}
             />
-          )}
-        </div>
-      </>
+          </div>
+        )}
+      </div>
     )
   }
 }
 export default EmojiGame
+
+// if (emojisList.length !== resultEmojisLength) {
+//   this.setState(prevState => ({
+//     isTrue: !prevState.isTrue,
+//     // displayresult: resultEmojisLength,
+//     emolist: [],
+//     maxofall: [...prevState.maxofall, resultEmojisLength],
+//   }))
+// } else {
+//   this.setState({
+//     //   displayresult: resultEmojisLength,
+//     emolist: [],
+//   })
+// }
